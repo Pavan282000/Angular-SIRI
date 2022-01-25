@@ -1,0 +1,143 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" >
+        <img
+          src="../../../../assets/logoNew.png"
+          height="40"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbarItems">
+        <li class="nav-item">
+          <a class="nav-link" ><button class="navbarButton" routerLink="" >Home</button></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" ><button class="navbarButton">About</button></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  style=""><button class="navbarButton"  >Assessment</button></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" ><button class="navbarButton">Analysis</button></a>
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+
+      <!-- <button  type="button" class="btn btn-link px-3 me-2" style="text-decoration: none; color: black; font-weight: 400;" >
+        Admin Login
+      </button> -->
+      <button type="button" class="btn me-3 signUpButton" style="background: #003153; border: 1px solid #003153; " data-target="#exampleModalCenter2" data-toggle="modal"  >
+        Admin Login
+      </button>
+      <!-- Avatar -->
+      <a
+        class="dropdown-toggle d-flex align-items-center hidden-arrow"
+
+        id="navbarDropdownMenuLink"
+        role="button"
+        data-mdb-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <img
+          src="../../../../assets/user4.png"
+          class="rounded-circle"
+          height="25"
+          alt="Black and White Portrait of a Man"
+          loading="lazy"
+        />
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+        <li>
+          <a class="dropdown-item" >My profile</a>
+        </li>
+        <li>
+          <a class="dropdown-item" >Settings</a>
+        </li>
+        <li>
+          <a class="dropdown-item" >Logout</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+
+
+
+<!-- <div class="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="align-items: center; text-align: center;">
+        <h5 class="modal-title text-center" id="exampleModalLongTitle"> <div class="title">Login to your account</div> </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeIcon">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <div class="subTitle">Login to your account</div> -->
+        <!-- <div class="caption">Enter as an admin to obtain full access to all the available data</div> -->
+
+
+
+      <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Login to your account</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="userForm">
+                <!-- <div class="form-group">
+                  <label class="col-form-label">UserName:</label>
+                  <input formControlName="name" type="text" class="form-control">
+                  <small *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched"  class="text-danger">Name is Required</small>
+                </div> -->
+                <div class="form-group">
+                  <label class="col-form-label">Email:</label>
+                  <input formControlName="email" type="text" class="form-control" >
+                  <small *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched"  class="text-danger">Email is Required</small>
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">Password:</label>
+                  <input formControlName="password" type="password" class="form-control" >
+                  <small *ngIf="userForm.get('password')?.invalid && userForm.get('phone')?.touched"  class="text-danger">Password is Required(minimum length 10,numbers are only allowed)</small>
+                </div>
+
+                <button [disabled]="userForm.invalid"  type="submit" routerLink="/admin" data-dismiss="modal"  class="btn btn-primary">Log in </button>
+              </form>
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+          </div>
+        </div>
+      </div>

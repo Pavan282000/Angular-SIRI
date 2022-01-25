@@ -1,0 +1,111 @@
+
+
+
+
+<div class="assessmentPage">
+  <table class="table table mt-5 assessmentTable" style="width: 90%; margin: auto;text-align: center;">
+    <thead>
+      <tr>
+        <th></th>
+        <th scope="col" >Dimension Title </th>
+        <th scope="col" >Dimension Result </th>
+        <th scope="col">0</th>
+        <th scope="col">1</th>
+        <th scope="col">2</th>
+        <th scope="col">3</th>
+        <th scope="col">4</th>
+        <th scope="col">5</th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor="let item of results;let index=index">
+      <tr>
+        <th class="blocks" rowspan="9" ><span> Dimension {{index}}</span></th>
+        <td class="pillars" rowspan="3">{{item.Dim}}</td>
+        <td class="dimensions" rowspan="3">{{item.value}}</td>
+        <td colspan="6" class="dimensionDescription" ></td>
+      </tr>
+      <tr class="barChart" data-toggle="popover" data-trigger="hover" title="{{item.Dim}} {{item.value}}"  data-content="Popover in row number 1">
+        <td [attr.colspan]="item.value" class="bandValueDescription">
+          <!-- <div style="float: right;">1</div> -->
+          <!-- <button type="button" class="btn btn-outline-secondary mr-2" placement="top"
+          ngbTooltip="Your Results: 2.3" style="border: none; background: none;">
+            Tooltip on top
+          </button> -->
+        </td>
+      </tr>
+      <tr>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </table>
+
+  <!-- <table class="table table mt-5 assessmentTable" style="width: 90%; margin: auto;text-align: center;">>
+
+</table> -->
+
+</div>
+
+
+
+
+<!-- <button data-toggle="tooltip" data-placement="right" title="Tooltip on right">click</button>
+
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+  Tooltip on right
+</button> -->
+
+<!-- <button type="button" class="btn btn-outline-secondary mr-2" placement="top"
+ngbTooltip="Your Results: 2.3 ">
+  Tooltip on top
+</button>
+
+<button type="button" class="btn btn-outline-secondary mr-2" placement="right" ngbTooltip="Tooltip on right">
+  Tooltip on right
+</button>
+
+<button type="button" class="btn btn-outline-secondary mr-2" placement="bottom" ngbTooltip="Tooltip on bottom">
+  Tooltip on bottom
+</button>
+
+<button type="button" class="btn btn-outline-secondary mr-2" placement="left" ngbTooltip="Tooltip on left">
+  Tooltip on left
+</button>
+
+
+<button type="button" class="btn btn-outline-secondary mr-2" placement="top"
+        ngbPopover="This is simple example form ItSolutionStuff.com" popoverTitle="Popover on top">
+  Popover on top
+</button>
+
+<button type="button" class="btn btn-outline-secondary mr-2" placement="right"
+        ngbPopover="This is simple example form ItSolutionStuff.com" popoverTitle="Popover on right">
+  Popover on right
+</button>
+
+<button type="button" class="btn btn-outline-secondary mr-2" placement="bottom"
+        ngbPopover="This is simple example form ItSolutionStuff.com" popoverTitle="Popover on bottom">
+  Popover on bottom
+</button>
+
+<button type="button" class="btn btn-outline-secondary mr-2" placement="left"
+        ngbPopover="Your Results: 1.0 Best" popoverTitle="Popover on left">
+  Popover on left
+</button> -->

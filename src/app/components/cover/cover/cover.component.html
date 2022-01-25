@@ -1,0 +1,176 @@
+
+<!-- <app-navbar></app-navbar> -->
+<div class="entirePage">
+  <app-navbar></app-navbar>
+
+
+
+  <!-- COVER PAGE CODE STARTS -->
+  <div class="coverPage">
+    <div class="mainContent" *ngIf="showCoverPage">
+      <p class="mainTitle">Weighted Industry 4.0 Readiness Index</p>
+
+      <p class="tagLine">To help companies identify focus areas of transformation that will generate the greatest value to them & their customers.</p>
+
+      <button class="takeAssessmentButton" data-toggle="modal" data-target="#exampleModalCenter" data-toggle="modal" data-target="#exampleModalCenter">
+        TAKE ASSESSMENT
+      </button>
+    </div>
+
+    <img src="../../../../assets/dataImage.PNG" alt="image" class="coverImage" *ngIf="showCoverImage">
+  </div>
+  <!-- COVER PAGE CODE ENDS -->
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- MODAL CODE -->
+ <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="align-items: center; text-align: center;">
+        <h5 class="modal-title text-center" id="exampleModalLongTitle">Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeIcon" (click)="closeOrgDetailsModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="orgGroup">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Industry Sector</label>
+            <select class="form-control" formControlName="orgSector" id="exampleFormControlSelect1" (change)="enterOrganizationSector($event)" value={{organizationSector}}>
+              <option>Select</option>
+              <option>AEROSPACE</option>
+              <option>AUTOMOTIVE</option>
+              <option>ELECTRONICS</option>
+              <option>ENERGY & CHEMICALS (DOWNSTREAM)</option>
+              <option>FOOD & BEVERAGE</option>
+              <option>GENERAL MANUFACTURING</option>
+              <option>LOGISTICS</option>
+            </select>
+          </div>
+          <small *ngIf="orgGroup.get('orgSector')?.invalid && orgGroup.get('orgSector')?.touched"  class="text-danger">Please select an Option </small>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Organization Name</label>
+            <input type="text" formControlName="orgName" class="form-control" id="exampleFormControlInput1" placeholder="Organization Name" (change)="enterOrganizationName($event)" value={{organizationName}}>
+          </div>
+          <small *ngIf="orgGroup.get('orgName')?.invalid && orgGroup.get('orgName')?.touched"  class="text-danger">Name is required</small>
+
+          <div class="modal-footer">
+            <button routerLink="/model" [disabled]="orgGroup.invalid" routerLinkActive="active" type="button" class="btn " style="background: #003153; border: 1px solid #003153; font-size: .93rem; border-radius: 6px; color: white; text-transform: none;" id="saveBtn" data-dismiss="modal" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" (click)="saveCompanyDetails()">Proceed to Assessment</button>
+
+          </div>
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="align-items: center; text-align: center;">
+        <h5 class="modal-title text-center" id="exampleModalLongTitle">Dimension Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeIcon" (click)="closeOrgDetailsModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1" style="font-weight: 700;">Dimension Title</label>
+            <input type="text" class="form-control" id="dimensionTitle" placeholder="Dimension Title" (change)="newDimensionMethod($event)" (click)="newDimensionClick()" value={{newDimension}}>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1" style="font-weight: 400;">Description</label>
+            <input type="text" class="form-control" id="dimensionDescription" placeholder="Dimension Description" (change)="newDimensionDetailMethod($event)" (click)="newDimensionDetailClick()" value={{newDimensionDetail}}>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1" style="font-weight: 400;">Dimension Weight</label>
+            <input type="number" class="form-control" id="weight" placeholder="Dimension Weight" (change)="newDimensionWeightMethod($event)" (click)="newDimensionWeightClick()" value={{newDimensionWeight}}>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1" style="font-weight: 400;">Dimension Cutoff</label>
+            <input type="number" class="form-control" id="weight" placeholder="Dimension Cutoff" (change)="newDimensionCutoffMethod($event)" (click)="newDimensionCutoffClick()" value={{newDimensionCutoff}}>
+          </div>
+          <div class="modalConfirmationText" *ngIf="showDimensionConfirmation">Dimension has been added!</div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="addDimensionButton()" style="background: rgb(16, 167, 36); font-size: .93rem; border-radius: 6px; color: white; text-transform: none;">Add</button>
+        <button type="button" class="btn " style="background: #003153; border: 1px solid #003153; font-size: .93rem; border-radius: 6px; color: white; text-transform: none;" id="saveBtn" data-dismiss="modal" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" (click)="saveDimensionDetails()" routerLink="/survey">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
